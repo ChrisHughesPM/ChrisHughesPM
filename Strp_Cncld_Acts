@@ -1,0 +1,7 @@
+select subscriptions.status, plans.created, plans.nickname, products.name, customers.name, customers.email, subscriptions.canceled_at
+from Subscriptions
+join Plans on subscriptions.plan_id = Plans.id
+join Products on Plans.product_id = Products.id
+join Customers on Subscriptions.customer_id = Customers.ID
+where
+	subscriptions.status = 'canceled'
